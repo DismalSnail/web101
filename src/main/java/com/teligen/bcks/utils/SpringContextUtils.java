@@ -1,4 +1,4 @@
-package com.teligen.bcks;
+package com.teligen.bcks.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

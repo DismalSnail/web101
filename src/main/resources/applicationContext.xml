@@ -4,5 +4,29 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
  <bean name="first" class="com.teligen.bcks.First"/>
- <bean name="springContextUtils" class="com.teligen.bcks.SpringContextUtils"/>
+ <bean name="springContextUtils" class="com.teligen.bcks.utils.SpringContextUtils"/>
+ <!--数据库连接池配置 -->
+ <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource"
+       destroy-method="close" lazy-init="false" init-method="init">
+  <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+  <property name="url" value="jdbc:mysql://49.235.88.218:3306/web101"/>
+  <property name="username" value="root" />
+  <property name="password" value="root" />
+  <property name="initialSize" value="1" />
+  <property name="maxActive" value="50" />
+  <property name="maxWait" value="30000" />
+
+  <property name="filters" value="stat,wall" />
+  <property name="timeBetweenEvictionRunsMillis" value="3000" />
+  <property name="minEvictableIdleTimeMillis" value="300000" />
+  <property name="validationQuery" value="SELECT 'x'" />
+  <property name="testWhileIdle" value="true" />
+  <property name="testOnBorrow" value="false" />
+  <property name="testOnReturn" value="false" />
+  <property name="poolPreparedStatements" value="true" />
+  <property name="maxPoolPreparedStatementPerConnectionSize"
+            value="20" />
+ </bean>
+ <bean name="userDao" class="com.teligen.bcks.dao.UserDao"/>
+ <bean name="loginVerify" class="com.teligen.bcks.service.LoginVerify"/>
 </beans>
