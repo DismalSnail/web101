@@ -4,6 +4,9 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <display-name>Archetype Created Web Application</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 
     <listener>
         <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
@@ -28,6 +31,15 @@
     <servlet-mapping>
         <servlet-name>loginVerify</servlet-name>
         <url-pattern>/loginVerify</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>redirect</servlet-name>
+        <servlet-class>com.teligen.bcks.controller.RedirectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirect</servlet-name>
+        <url-pattern>/redirect</url-pattern>
     </servlet-mapping>
 
 <!-- 过滤器 -->
